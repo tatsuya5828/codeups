@@ -1,0 +1,28 @@
+@use "global" as *;
+
+.contact {
+  position: relative;
+}
+
+.contact::before {
+  content: "";
+  background-image: url("../../assets/images/common/contact-fish-img.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: rem(-26);
+  left: calc(50% + rem(63.5));
+  width: rem(109);
+  height: rem(50);
+  @include mq("md") {
+    top: rem(-37);
+    left: auto;
+    right: calc(max(0px, 50% - min(50vw, rem(670))));
+    width: rem(301);
+    height: rem(138);
+  }
+}
+
+.contact__inner {
+  padding-right: rem(40);
+}

@@ -1,0 +1,28 @@
+@use "global" as *;
+
+/* 共通スタイル */
+.hover-underline {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline::after {
+  content: "";
+  position: absolute;
+  left: rem(20);
+  bottom: rem(22);
+  width: calc(100% - rem(40));
+  height: 1px;
+  background: $white;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.5s ease;
+}
+
+.hover-underline:hover::after {
+  transform: scaleX(1);
+}
+
+.hover-underline:focus::after {
+  transform: scaleX(1);
+}

@@ -1,0 +1,34 @@
+@use "global" as *;
+
+.campaign__inner {
+  margin: auto;
+  padding: 0 rem(15);
+  max-width: rem(600);
+  width: 100%;
+  @include mq(md) {
+    padding: 0 rem(25);
+    max-width: rem(1130);
+  }
+}
+
+.campaign__swiper {
+  margin-top: rem(94);
+  margin-right: calc(50% - 50vw);
+  @include mq("md") {
+    margin-top: rem(25);
+  }
+}
+
+.campaign__swiper .swiper-slide {
+  height: auto;
+  padding-bottom: rem(13);
+}
+
+.campaign__btn {
+  text-align: center;
+  margin-top: rem(27);
+  padding-bottom: rem(4);
+  @include mq("md") {
+    margin-top: rem(66);
+  }
+}

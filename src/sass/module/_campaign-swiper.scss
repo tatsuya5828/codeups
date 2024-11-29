@@ -1,0 +1,77 @@
+@use "global" as *;
+
+.campaign-swiper__button-wrap {
+  display: flex;
+  justify-content: right;
+  margin-top: rem(-65);
+  max-width: rem(1115);
+}
+
+.campaign-swiper__button-wrap .swiper-button-prev {
+  transform: scale(-1, 1);
+}
+
+.campaign-swiper__button-wrap .swiper-button-prev,
+.campaign-swiper__button-wrap .swiper-button-next {
+  position: relative;
+  width: rem(80);
+  height: rem(80);
+  border: 1px solid $green3;
+  border-radius: 50vh;
+  transition: opacity 0.3s;
+}
+
+.campaign-swiper__button-wrap .swiper-button-prev:hover,
+.campaign-swiper__button-wrap .swiper-button-next:hover {
+  opacity: 0.7;
+}
+
+.campaign-swiper__button-wrap .swiper-button-next {
+  margin-left: rem(80);
+}
+
+.campaign-swiper__button-wrap .swiper-button-prev::before,
+.campaign-swiper__button-wrap .swiper-button-next::before {
+  content: "";
+  position: absolute;
+  top: 51%;
+  left: 50%;
+  width: rem(40);
+  height: rem(1);
+  border-radius: 100vh;
+  transform: translate(-50%, -50%);
+  background-color: $green3;
+}
+
+.campaign-swiper__button-wrap .swiper-button-prev::after,
+.campaign-swiper__button-wrap .swiper-button-next::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(50% + rem(9));
+  width: rem(10);
+  height: rem(1);
+  border-radius: 100vh;
+  transform: translate(-50%, -50%);
+  background-color: $green3;
+  transform: rotate(45deg);
+  transform-origin: 100% 50%;
+}
+
+//位置のreset
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  top: unset;
+  bottom: unset;
+  left: unset;
+  right: unset;
+  margin: 0;
+  padding: 0;
+}
+
+//デフォルトのボタンを初期化
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: "";
+}
