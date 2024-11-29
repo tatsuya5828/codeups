@@ -41,15 +41,3 @@
   }
 }
 
-a:hover {
-  @if $startFrom == sp {
-    @include mq("md") {
-      opacity: 0.8;
-    }
-  } @else {
-    opacity: 0.8;
-    @include mq("md") {
-      opacity: 1;
-    }
-  }
-}
