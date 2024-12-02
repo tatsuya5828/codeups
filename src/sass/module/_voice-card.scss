@@ -12,7 +12,7 @@
   @include mq("md") {
     content: "";
     position: absolute;
-    background-image: url("../../assets/images/common/voice-fish-img.webp");
+    background: url("/assets/images/common/voice-fish-img.webp");
     background-repeat: no-repeat;
     background-size: cover;
     top: rem(-120);
@@ -27,7 +27,7 @@
   @include mq("md") {
     content: "";
     position: absolute;
-    background-image: url("../../assets/images/common/voice-fish-img2.webp");
+    background: url("/assets/images/common/voice-fish-img2.webp");
     background-repeat: no-repeat;
     background-size: cover;
     bottom: rem(-72);

@@ -75,6 +75,10 @@
   font-family: $third-font-family;
 }
 
+.header__nav-item a:hover {
+opacity: 1;
+}
+
 .header__nav-item span {
   margin-top: rem(4);
   display: block;
@@ -222,7 +226,7 @@
   position: absolute;
   top: rem(12);
   left: rem(-22);
-  background-image: url("../..//assets/images/common/footer-icon.webp");
+  background: url("/assets/images/common/footer-icon.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;

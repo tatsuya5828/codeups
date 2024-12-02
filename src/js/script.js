@@ -1,24 +1,31 @@
 jQuery(function ($) {
-  // ハンバーガーメニュー
-  $(function () {
-    $(".js-hamburger").click(function () {
-      $(this).toggleClass("is-open");
-      $(".js-drawer").fadeToggle();
-    });
+  // ハンバーガーボタンのクリック処理
+  $(".js-hamburger").click(function () {
+    $(this).toggleClass("is-open");
+    $(".js-drawer").fadeToggle();
 
-    // ドロワーナビのaタグをクリックで閉じる
-    $(".js-drawer a[href]").on("click", function () {
+    // ドロワーが開いている場合にpagetopを非表示
+    if ($(this).hasClass("is-open")) {
+      $("#js-pagetop").addClass("is-hidden");
+    } else {
+      $("#js-pagetop").removeClass("is-hidden");
+    }
+  });
+
+  // ドロワーナビ内リンクをクリック時に閉じる処理
+  $(".js-drawer a[href]").on("click", function () {
+    $(".js-hamburger").removeClass("is-open");
+    $(".js-drawer").fadeOut();
+    $("#js-pagetop").removeClass("is-hidden");
+  });
+
+  // ウィンドウリサイズ時の処理
+  $(window).on("resize", function () {
+    if (window.matchMedia("(min-width: 768px)").matches) {
       $(".js-hamburger").removeClass("is-open");
       $(".js-drawer").fadeOut();
-    });
-
-    // resizeイベント
-    $(window).on("resize", function () {
-      if (window.matchMedia("(min-width: 768px)").matches) {
-        $(".js-hamburger").removeClass("is-open");
-        $(".js-drawer").fadeOut();
-      }
-    });
+      $("#js-pagetop").removeClass("is-hidden");
+    }
   });
 });
 

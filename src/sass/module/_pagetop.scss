@@ -21,8 +21,16 @@
   visibility: visible;
 }
 
+.pagetop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
 .pagetop img {
   width: rem(48);
+  border-radius: 100vh;
 
   @include mq("md") {
     width: rem(80);
