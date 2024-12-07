@@ -1,38 +1,7 @@
 jQuery(function ($) {
-  // ハンバーガーボタンのクリック処理
-  $(".js-hamburger").click(function () {
-    $(this).toggleClass("is-open");
-    $(".js-drawer").fadeToggle();
-
-    // ドロワーが開いている場合にpagetopを非表示
-    if ($(this).hasClass("is-open")) {
-      $("#js-pagetop").addClass("is-hidden");
-    } else {
-      $("#js-pagetop").removeClass("is-hidden");
-    }
-  });
-
-  // ドロワーナビ内リンクをクリック時に閉じる処理
-  $(".js-drawer a[href]").on("click", function () {
-    $(".js-hamburger").removeClass("is-open");
-    $(".js-drawer").fadeOut();
-    $("#js-pagetop").removeClass("is-hidden");
-  });
-
-  // ウィンドウリサイズ時の処理
-  $(window).on("resize", function () {
-    if (window.matchMedia("(min-width: 768px)").matches) {
-      $(".js-hamburger").removeClass("is-open");
-      $(".js-drawer").fadeOut();
-      $("#js-pagetop").removeClass("is-hidden");
-    }
-  });
-});
-
-// MVを過ぎたら色を変更
-jQuery(function ($) {
   const $header = $(".header");
   const $mv = $(".mv");
+  const $body = $("body");
 
   // MVセクションの高さを取得
   const mvHeight = $mv.outerHeight();
@@ -42,9 +11,45 @@ jQuery(function ($) {
     const scrollPosition = $(this).scrollTop();
 
     if (scrollPosition > mvHeight) {
-      $header.addClass("is-open");
+      $header.addClass("is-scrolled");
     } else {
+      $header.removeClass("is-scrolled");
+    }
+  });
+
+  // ハンバーガーボタンのクリック処理
+  $(".js-hamburger").click(function () {
+    $(this).toggleClass("is-open");
+    $(".js-drawer").fadeToggle();
+    $header.toggleClass("is-open");
+
+    // 背面スクロールを禁止・解除
+    if ($(this).hasClass("is-open")) {
+      $body.addClass("header-no-scroll");
+      $("#js-pagetop").addClass("is-hidden");
+    } else {
+      $body.removeClass("header-no-scroll");
+      $("#js-pagetop").removeClass("is-hidden");
+    }
+  });
+
+  // ドロワーナビ内リンクをクリック時に閉じる処理
+  $(".js-drawer a[href]").on("click", function () {
+    $(".js-hamburger").removeClass("is-open");
+    $(".js-drawer").fadeOut();
+    $header.removeClass("is-open");
+    $body.removeClass("header-no-scroll");
+    $("#js-pagetop").removeClass("is-hidden");
+  });
+
+  // ウィンドウリサイズ時の処理
+  $(window).on("resize", function () {
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      $(".js-hamburger").removeClass("is-open");
+      $(".js-drawer").fadeOut();
       $header.removeClass("is-open");
+      $body.removeClass("header-no-scroll");
+      $("#js-pagetop").removeClass("is-hidden");
     }
   });
 });
