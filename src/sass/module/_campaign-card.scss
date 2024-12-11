@@ -123,14 +123,15 @@
   content: "";
   position: absolute;
   border: 2px solid #c94800;
-  width: rem(76);
+  width: rem(80);
   top: rem(8);
-  left: 0;
+  left: rem(-2);
   height: rem(1);
   line-height: 1;
   @include mq("md") {
     width: rem(91);
     top: rem(10);
+    left: 0;
   }
 }
 
