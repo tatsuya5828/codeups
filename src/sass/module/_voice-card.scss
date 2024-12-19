@@ -16,7 +16,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     top: rem(-120);
-    left: calc(max(0px, 50% - min(50vw, rem(620))));
+    left: calc(max(0px, 50% - min(48vw, rem(620))));
     width: rem(301);
     height: rem(138);
     z-index: 1;
@@ -31,7 +31,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     bottom: rem(-72);
-    right: calc(max(0px, 50% - min(50vw, rem(540))));
+    right: calc(max(0px, 50% - min(48vw, rem(540))));
     width: rem(71);
     height: rem(162);
     z-index: 1;

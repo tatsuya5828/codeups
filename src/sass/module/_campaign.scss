@@ -1,21 +1,14 @@
 @use "global" as *;
 
-.campaign__inner {
-  margin: auto;
-  padding: 0 rem(15);
-  max-width: rem(600);
-  width: 100%;
-  @include mq(md) {
-    padding: 0 rem(25);
-    max-width: rem(1130);
-  }
+.campaign {
+  position: relative;
 }
 
 .campaign__swiper {
-  margin-top: rem(94);
+  margin-top: rem(30);
   margin-right: calc(50% - 50vw);
   @include mq("md") {
-    margin-top: rem(25);
+    margin-top: rem(40);
   }
 }
 

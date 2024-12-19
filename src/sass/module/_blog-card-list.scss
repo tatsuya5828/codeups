@@ -1,12 +1,17 @@
 @use "global" as *;
 
-.blog-card-list {
+.blog-card__list {
   margin-top: rem(29);
+  @include mq("md") {
+    margin-top: rem(80);
+  }
+}
+
+.blog-card-list {
   display: grid;
   gap: rem(39);
   grid-template-columns: repeat(1, 1fr);
   @include mq(md) {
-    margin-top: rem(80);
     gap: rem(40);
     grid-template-columns: repeat(3, 1fr);
   }
@@ -45,7 +50,11 @@
 }
 
 .blog-card-list__title-wrap {
-  margin-top: rem(24);
+  margin-top: rem(15);
+  border-bottom: 1px solid #408f95;
+  @include mq("md") {
+    margin-top: rem(24);
+  }
 }
 
 .blog-card-list__item-category {
@@ -64,15 +73,14 @@
 }
 
 .blog-card-list__item-text {
-  border-top: 1px solid $green3;
   color: $green;
-  padding-top: rem(16);
+  margin-top: rem(16);
   font-weight: $regular;
   line-height: calc(24 / 16);
 }
 
 .blog-card-list__item-btn {
-  margin-top: rem(39);
+  margin-top: rem(42);
   text-align: center;
   @include mq("md") {
     margin-top: rem(79);

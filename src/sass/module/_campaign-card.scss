@@ -103,6 +103,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: rem(19);
+
+  @include mq("md") {
+  gap: rem(26);
+  }
 }
 
 .campaign-card__price-original {
@@ -137,14 +142,12 @@
 
 .campaign-card__price-discount {
   margin-top: rem(-3);
-  margin-left: rem(19);
   font-size: rem(32);
   font-weight: $bold;
   font-family: $fourth-font-family;
   line-height: 1;
   color: $green3;
   @include mq("md") {
-    margin-left: rem(26);
     font-size: rem(40);
   }
 }

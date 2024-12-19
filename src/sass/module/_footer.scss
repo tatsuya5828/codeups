@@ -5,16 +5,7 @@
 }
 
 .footer__inner {
-  max-width: calc(rem(500) + rem(15) * 2);
-  padding-left: rem(15);
-  padding-right: rem(15);
-  margin-inline: auto;
-
-  @include mq("md") {
-    max-width: calc(rem(1080) + rem(25) * 2);
-    padding-left: rem(25);
-    padding-right: rem(25);
-  }
+  max-width: rem(630);
 }
 
 .footer__logo-wrap {

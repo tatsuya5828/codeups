@@ -26,12 +26,13 @@
     href="https://fonts.googleapis.com/css2?family=Gotu&family=Lato&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap"
     rel="stylesheet">
   <!-- JavaScript -->
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
+  <script src="./assets/js/script.js" defer></script>
   <!-- css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-
 
 <body>
   <!-- header -->
@@ -44,29 +45,29 @@
       </h1>
       <nav class="header__nav">
         <ul class="header__nav-items">
-          <li class="header__nav-item">
-            <a href="#" class="hover-underline">Campaign<span>キャンペーン</span></a>
+          <li class="header__nav-item hover-underline">
+            <a href="#">Campaign<span>キャンペーン</span></a>
           </li>
-          <li class="header__nav-item">
-            <a href="#" class="hover-underline">About&nbsp;us<span>私たちについて</span></a>
+          <li class="header__nav-item hover-underline">
+            <a href="#">About&nbsp;us<span>私たちについて</span></a>
           </li>
-          <li class="header__nav-item">
-            <a href="#" class="hover-underline">Information<span>ダイビング情報</span></a>
+          <li class="header__nav-item hover-underline">
+            <a href="#">Information<span>ダイビング情報</span></a>
           </li>
-          <li class="header__nav-item">
-            <a href="#" class="hover-underline">Blog<span>ブログ</span></a>
+          <li class="header__nav-item hover-underline">
+            <a href="#">Blog<span>ブログ</span></a>
           </li>
-          <li class="header__nav-item">
-            <a href="#" class="hover-underline">Voice<span>お客様の声</span></a>
+          <li class="header__nav-item hover-underline">
+            <a href="#">Voice<span>お客様の声</span></a>
           </li>
-          <li class="header__nav-item">
-            <a href="#" class="hover-underline">Price<span>料金一覧</span></a>
+          <li class="header__nav-item hover-underline">
+            <a href="#">Price<span>料金一覧</span></a>
           </li>
-          <li class="header__nav-item">
-            <a href="#" class="hover-underline">FAQ<span>よくある質問</span></a>
+          <li class="header__nav-item hover-underline">
+            <a href="#">FAQ<span>よくある質問</span></a>
           </li>
-          <li class="header__nav-item">
-            <a href="#" class="hover-underline">Contact<span>お問い合わせ</span></a>
+          <li class="header__nav-item hover-underline">
+            <a href="#">Contact<span>お問い合わせ</span></a>
           </li>
         </ul>
       </nav>
@@ -199,7 +200,7 @@
     </section>
     <!-- Campaign -->
     <section id="campaign" class="campaign layout-campaign">
-      <div class="campaign__inner">
+      <div class="campaign__inner inner">
         <div class="section-title">
           <p class="section-title__main">Campaign</p>
           <h3 class="section-title__sub">キャンペーン</h3>
@@ -309,25 +310,23 @@
           <h3 class="section-title__sub">私たちについて</h3>
         </div>
         <div class="about__content">
-          <div class="about__img-wrapper">
-            <div class="about__shisa-img">
-              <img src="./assets/images/common/about-img.webp" alt="青空と緑の木、そして瓦屋根の上に置かれたシーサー像" loading="lazy">
-            </div>
-            <div class="about__fish-img">
-              <img src="./assets/images/common/about-img2.webp" alt="青い海の中を泳ぐ熱帯魚" loading="lazy">
-            </div>
-            <div class="about__text-wrapper">
-              <p class="about__text">Dive&nbsp;into<br>the&nbsp;Ocean</p>
-              <div class="about__wrap">
-                <p class="about__description">
-                  ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入り<br
-                    class="u-desktop">ます。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト<span>が入ります。</span>
-                </p>
-                <div class="about__btn">
-                  <a href="#" class="btn"><span>View&nbsp;more</span>
-                    <span class="btn__arrow"></span>
-                  </a>
-                </div>
+          <div class="about__shisa-img">
+            <img src="./assets/images/common/about-img.webp" alt="青空と緑の木、そして瓦屋根の上に置かれたシーサー像" loading="lazy">
+          </div>
+          <div class="about__fish-img">
+            <img src="./assets/images/common/about-img2.webp" alt="青い海の中を泳ぐ熱帯魚" loading="lazy">
+          </div>
+          <div class="about__text-wrapper">
+            <p class="about__text">Dive&nbsp;into<br>the&nbsp;Ocean</p>
+            <div class="about__wrap">
+              <p class="about__description">
+                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入り<br
+                  class="u-desktop">ます。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト<span>が入ります。</span>
+              </p>
+              <div class="about__btn">
+                <a href="#" class="btn"><span>View&nbsp;more</span>
+                  <span class="btn__arrow"></span>
+                </a>
               </div>
             </div>
           </div>
@@ -341,32 +340,30 @@
           <p class="section-title__main">Information</p>
           <h3 class="section-title__sub">ダイビング情報</h3>
         </div>
-        <div class="information__content">
-          <ul class="information__list information-list">
-            <li class="information-list__item">
-              <div class="information-list__item-img animation">
-                <img src="./assets/images/common/information-img.webp" alt="青い海の中を泳ぐ熱帯魚">
+        <ul class="information__list information-list">
+          <li class="information-list__item">
+            <div class="information-list__item-img animation">
+              <img src="./assets/images/common/information-img.webp" alt="青い海の中を泳ぐ熱帯魚">
+            </div>
+            <div class="information-list__item-wrap">
+              <p class="information-list__item-text">ライセンス講習</p>
+              <p class="information-list__description">
+                当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br>正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。
+              </p>
+              <div class="information-list__item-btn">
+                <a href="#" class="btn"><span>View&nbsp;more</span>
+                  <span class="btn__arrow"></span>
+                </a>
               </div>
-              <div class="information-list__item-wrap">
-                <p class="information-list__item-text">ライセンス講習</p>
-                <p class="information-list__description">
-                  当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br>正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。
-                </p>
-                <div class="information-list__item-btn">
-                  <a href="#" class="btn"><span>View&nbsp;more</span>
-                    <span class="btn__arrow"></span>
-                  </a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
     <!-- Blog -->
     <section id="blog-card" class="blog-card layout-blog-card">
       <div class="blog-card__inner inner">
-        <div class="section-title blog-card-title">
+        <div class="section-title">
           <p class="section-title__main section-title__main--white">Blog</p>
           <h3 class="section-title__sub section-title__sub--white">ブログ</h3>
         </div>
@@ -443,12 +440,10 @@
                   <img src="./assets/images/common/voice-img.webp" alt="明るい笑顔で麦わら帽子をかぶる女性の写真" loading="lazy">
                 </div>
               </div>
-              <div class="voice-card-list__item-title-wrap">
-                <p class="voice-card-list__item-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-                  ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-                  ここにテキストが入ります。ここにテキストが入ります。
-                </p>
-              </div>
+              <p class="voice-card-list__item-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
+                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
+                ここにテキストが入ります。ここにテキストが入ります。
+              </p>
             </a>
           </li>
           <li class="voice-card-list__item">
@@ -465,12 +460,10 @@
                   <img src="./assets/images/common/voice-img2.webp" alt="グッドポーズをする男性の写真" loading="lazy">
                 </div>
               </div>
-              <div class="voice-card-list__item-title-wrap">
-                <p class="voice-card-list__item-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-                  ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-                  ここにテキストが入ります。ここにテキストが入ります。
-                </p>
-              </div>
+              <p class="voice-card-list__item-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
+                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
+                ここにテキストが入ります。ここにテキストが入ります。
+              </p>
             </a>
           </li>
         </ul>
@@ -719,10 +712,6 @@
     </a>
   </main>
 
-  <!-- JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
-  <script src="./assets/js/script.js" defer></script>
 </body>
 
 </html>

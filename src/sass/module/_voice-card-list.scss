@@ -1,12 +1,17 @@
 @use "global" as *;
 
-.voice-card-list {
+.voice-card__list {
   margin-top: rem(45);
+  @include mq("md") {
+    margin-top: rem(30);
+  }
+}
+
+.voice-card-list {
   display: grid;
   gap: rem(39);
   grid-template-columns: repeat(1, 1fr);
   @include mq(md) {
-    margin-top: rem(30);
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -64,10 +69,6 @@
   }
 }
 
-.voice-card-list__item-title-wrap {
-  margin-top: auto;
-}
-
 .voice-card-list__item-title {
   margin-top: rem(4);
   color: $green;
@@ -102,12 +103,12 @@
 }
 
 .voice-card-list__item-text {
-  padding-top: rem(16);
+  margin-top: rem(16);
   font-weight: $regular;
   line-height: calc(24 / 16);
   color: $green;
   @include mq("md") {
-    padding-top: rem(39);
+    margin-top: rem(39);
   }
 }
 

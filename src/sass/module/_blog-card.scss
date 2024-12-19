@@ -1,16 +1,7 @@
 @use "global" as *;
 
-.blog-card__inner.inner {
-  width: 100%;
-  margin: auto;
-  max-width: rem(642);
-  padding-left: rem(21);
-  padding-right: rem(21);
-  @include mq(md) {
-    max-width: rem(1130);
-    padding-left: rem(25);
-    padding-right: rem(25);
-  }
+.blog-card__inner {
+  max-width: rem(630);
 }
 
 .blog-card__inner::before {
@@ -38,7 +29,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     top: rem(24);
-    left: calc(max(0px, 50% - min(50vw, rem(620))));
+    left: calc(max(0px, 50% - min(48vw, rem(620))));
     width: rem(437);
     height: rem(201);
     z-index: 1;

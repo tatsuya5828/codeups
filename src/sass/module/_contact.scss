@@ -17,12 +17,8 @@
   @include mq("md") {
     top: rem(-37);
     left: auto;
-    right: calc(max(0px, 50% - min(50vw, rem(670))));
+    right: calc(max(0px, 50% - min(48vw, rem(670))));
     width: rem(301);
     height: rem(138);
   }
-}
-
-.contact__inner {
-  padding-right: rem(40);
 }

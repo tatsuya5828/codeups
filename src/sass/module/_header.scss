@@ -30,7 +30,7 @@
   justify-content: space-between;
   @include mq("md") {
     padding-left: rem(40);
-    padding-right: rem(20);
+    padding-right: rem(40);
   }
 }
 
@@ -68,6 +68,7 @@
 .header__nav-items {
   display: flex;
   height: inherit;
+  gap: rem(40);
 }
 
 .header__nav-item {
@@ -75,7 +76,6 @@
 }
 
 .header__nav-item a {
-  padding: 0 rem(20);
   height: inherit;
   display: flex;
   justify-content: center;
