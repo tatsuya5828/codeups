@@ -23,3 +23,47 @@
     z-index: 1;
   }
 }
+
+.price__content {
+  margin-top: rem(29);
+  @include mq("md") {
+    margin-top: rem(40);
+    display: flex;
+    flex-wrap: wrap;
+    order: 2;
+    flex: 1;
+  }
+}
+
+.price__img {
+  width: 100%;
+  @include mq("md") {
+    order: 1;
+    flex: 1;
+    margin-left: rem(95);
+    width: calc(calc(492 / 1080) * 100%);
+  }
+}
+
+.price__img img {
+  width: 100%;
+  aspect-ratio: 345/227;
+  object-fit: cover;
+  @include mq("md") {
+    aspect-ratio: 492/745;
+  }
+}
+
+.price__lists {
+  @include mq("md") {
+    width: calc(calc(492 / 1080) * 100%);
+  }
+}
+
+.price__btn {
+  text-align: center;
+  margin-top: rem(40);
+  @include mq("md") {
+    margin-top: rem(80);
+  }
+}

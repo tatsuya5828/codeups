@@ -22,3 +22,20 @@
     height: rem(138);
   }
 }
+
+.contact__list {
+  @include mq(md) {
+    display: flex;
+    box-shadow: 4px 4px 10px rgba($color: #000, $alpha: 0.25);
+    align-items: center;
+    background-color: #fff;
+    padding: rem(80) rem(50);
+    width: 100%;
+  }
+}
+
+.contact__btn {
+  text-align: center;
+  margin-top: rem(38);
+  padding-bottom: rem(4);
+}

@@ -1,22 +1,6 @@
 @use "global" as *;
 
-.voice-card__list {
-  margin-top: rem(45);
-  @include mq("md") {
-    margin-top: rem(30);
-  }
-}
-
 .voice-card-list {
-  display: grid;
-  gap: rem(39);
-  grid-template-columns: repeat(1, 1fr);
-  @include mq(md) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.voice-card-list__item a {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -112,10 +96,3 @@
   }
 }
 
-.voice-card-list__item-btn {
-  margin-top: rem(39);
-  text-align: center;
-  @include mq("md") {
-    margin-top: rem(80);
-  }
-}

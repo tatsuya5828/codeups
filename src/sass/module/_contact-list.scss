@@ -1,16 +1,5 @@
 @use "global" as *;
 
-.contact-list__items {
-  @include mq(md) {
-    display: flex;
-    box-shadow: 4px 4px 10px rgba($color: #000, $alpha: 0.25);
-    align-items: center;
-    background-color: #fff;
-    padding: rem(80) rem(50);
-    width: 100%;
-  }
-}
-
 .contact-list__item:nth-child(1) {
   padding-inline: rem(25);
   @include mq("md") {
@@ -98,11 +87,4 @@
   color: $green3;
   text-align: center;
 }
-
-.contact-list__btn {
-  text-align: center;
-  margin-top: rem(38);
-  padding-bottom: rem(4);
-}
-
 

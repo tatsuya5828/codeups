@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.layout-blog-card {
+.layout-blog {
   position: relative;
   padding-top: rem(85);
   @include mq("md") {
