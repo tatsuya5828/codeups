@@ -29,6 +29,7 @@
   @include mq("md") {
     margin-top: rem(40);
     display: flex;
+    gap: rem(95);
     flex-wrap: wrap;
     order: 2;
     flex: 1;
@@ -40,7 +41,6 @@
   @include mq("md") {
     order: 1;
     flex: 1;
-    margin-left: rem(95);
     width: calc(calc(492 / 1080) * 100%);
   }
 }

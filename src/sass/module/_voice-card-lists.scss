@@ -8,3 +8,19 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.voice-card-lists.voice-card-lists--sub {
+  row-gap: calc(rem(40) - rem(1));
+  @include mq("md") {
+    row-gap: calc(rem(80) + rem(1));
+  }
+}
+
+.voice-card-lists__item.voice-card-lists__item--none {
+  display: none;
+}
+
+.voice-card-lists__item.is-active {
+  display: block;
+  animation: fade 0.3s;
+}

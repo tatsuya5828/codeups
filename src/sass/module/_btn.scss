@@ -10,6 +10,12 @@
   z-index: 1;
 }
 
+.btn.btn--white {
+  background-color: $white;
+  border: none;
+  padding: rem(13) rem(83) rem(13) rem(37);
+}
+
 .btn:hover {
   @include mq(md) {
     opacity: 1;
@@ -31,6 +37,10 @@
   transition-property: transform;
 }
 
+.btn.btn--white::before {
+  transform: scaleX(1);
+}
+
 .btn:hover::before {
   @include mq(md) {
     transform: scaleX(1);
@@ -50,8 +60,20 @@
   z-index: -1;
 }
 
+.btn.btn--white::after {
+  border: 1px solid $white;
+}
+
 .btn__arrow {
   margin-left: rem(8);
+}
+
+.btn__arrow.btn__arrow--submit {
+  margin-left: rem(16);
+}
+
+.btn__arrow.btn__arrow--white {
+  margin-left: rem(16);
 }
 
 .btn__arrow::before {
@@ -85,6 +107,11 @@
   }
 }
 
+.btn.btn--white .btn__arrow::before,
+.btn.btn--white .btn__arrow::after {
+  background-color: $green3;
+}
+
 .btn span {
   position: relative;
   font-family: $third-font-family;
@@ -96,8 +123,16 @@
   z-index: 2;
 }
 
+.btn.btn--white span {
+  color: $green3;
+}
+
 .btn:hover span {
   @include mq(md) {
     color: $green3;
   }
+}
+
+.btn.btn--submit {
+  padding: rem(13) rem(100) rem(13) rem(50);
 }

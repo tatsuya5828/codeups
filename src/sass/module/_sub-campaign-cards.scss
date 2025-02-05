@@ -1,0 +1,21 @@
+@use "global" as *;
+
+.sub-campaign-cards {
+  display: grid;
+  gap: rem(39);
+  grid-template-columns: repeat(1, 1fr);
+  @include mq(md) {
+    row-gap: rem(80);
+    column-gap: rem(40);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.sub-campaign-cards__item{
+  display: none;
+}
+
+.sub-campaign-cards__item.is-active {
+  display: block;
+  animation: fade 0.3s;
+}

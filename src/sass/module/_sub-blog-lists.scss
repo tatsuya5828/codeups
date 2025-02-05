@@ -1,0 +1,6 @@
+@use "global" as *;
+
+.sub-blog-lists__popularity-item + .sub-blog-lists__popularity-item{
+  margin-top: rem(24);
+}
+

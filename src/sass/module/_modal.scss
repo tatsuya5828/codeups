@@ -1,0 +1,78 @@
+@use "global" as *;
+
+/* 初期設定 */
+button {
+  background: none;
+  padding: 0;
+  height: 100%;
+}
+
+:where(dialog) {
+  width: unset;
+  max-width: unset;
+  // height: unset;
+  // max-height: unset;
+  padding: unset;
+  color: unset;
+  background-color: unset;
+  border: unset;
+  overflow: unset;
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/* モーダルのスタイル ============ */
+/* ダイアログの初期状態（非表示時） */
+dialog::backdrop {
+  opacity: 0;
+  transition: background 0.3s ease-in-out;
+}
+
+/* ダイアログ表示時のスタイル */
+dialog.js-show {
+  opacity: 1;
+}
+
+dialog.js-show::backdrop {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.modal__open-btn {
+  display: block;
+}
+
+.modal__content {
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  /* モーダル枠組みのスタイル */
+  width: min(rem(336), 95%);
+  max-height: 80vh;
+  background: $white;
+  @include mq("md") {
+    width: min(rem(920), 95%);
+  }
+}
+
+.modal__content.modal__content--vertical {
+  width: min(rem(336), 95%);
+  @include mq("md") {
+    width: min(rem(400), 95%);
+  }
+}
+
+.modal__inner {
+  // overflow-y: scroll;
+  height: inherit;
+  max-height: inherit;
+  position: relative;
+}
+
+.modal__body {
+  height: fit-content;
+  text-align: center;
+}

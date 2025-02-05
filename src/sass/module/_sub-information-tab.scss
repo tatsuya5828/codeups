@@ -1,0 +1,160 @@
+@use "global" as *;
+
+.sub-information-tab__inner {
+  display: flex;
+  justify-content: center;
+}
+
+.sub-information-tab__menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: rem(20);
+  @include mq("md") {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: rem(90);
+  }
+}
+
+.sub-information-tab__menu-item {
+  min-width: rem(102);
+  padding: rem(10) rem(16);
+  font-size: rem(14);
+  line-height: calc(20 / 14);
+  color: $green3;
+  background-color: $green2;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  @include mq(md) {
+    position: relative;
+    padding: rem(29) rem(30) rem(26) rem(102);
+    font-size: rem(24);
+    line-height: calc(35 / 24);
+  }
+}
+
+.sub-information-tab__menu-item:hover {
+  @include mq("md") {
+    color: $white;
+    background-color: $green3;
+    border-color: $green3;
+    opacity: 1;
+  }
+}
+
+.sub-information-tab__menu-item.sub-information-tab__menu-item--margin {
+  @include mq("md") {
+    padding: rem(29) rem(18) rem(26) rem(90);
+  }
+}
+
+.sub-information-tab__menu-item::before {
+  @include mq("md") {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: rem(30);
+    width: rem(64);
+    height: rem(64);
+    z-index: 1;
+  }
+}
+
+.sub-information-tab__menu-item.is-active {
+  color: #fff;
+  background-color: $green3;
+  box-shadow: (2px 2px 4px rgba($color: #000, $alpha: 0.25));
+  @include mq("md") {
+    box-shadow: (4px 4px 8px rgba($color: #000, $alpha: 0.25));
+  }
+}
+
+.sub-information-tab__menu-item[data-number="tab01"]::before {
+  @include mq("md") {
+    background: url("/assets/images/common/sub-information-icon1.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.sub-information-tab__menu-item[data-number="tab02"]::before {
+  @include mq("md") {
+    background: url("/assets/images/common/sub-information-icon2.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: rem(18);
+  }
+}
+
+.sub-information-tab__menu-item[data-number="tab03"]::before {
+  @include mq("md") {
+    background: url("/assets/images/common/sub-information-icon3.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.sub-information-tab__menu-item[data-number="tab01"].is-active::before {
+  @include mq("md") {
+    background: url("/assets/images/common/sub-information-icon1-1.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.sub-information-tab__menu-item[data-number="tab02"].is-active::before {
+  @include mq("md") {
+    background: url("/assets/images/common/sub-information-icon2-1.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.sub-information-tab__menu-item[data-number="tab03"].is-active::before {
+  @include mq("md") {
+    background: url("/assets/images/common/sub-information-icon3-1.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.sub-information-tab__menu-item[data-number="tab01"]:hover::before {
+  @include mq("md") {
+    background: url("/assets/images/common/sub-information-icon1-1.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+.sub-information-tab__menu-item[data-number="tab02"]:hover::before {
+  @include mq("md") {
+    background: url("/assets/images/common/sub-information-icon2-1.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+.sub-information-tab__menu-item[data-number="tab03"]:hover::before {
+  @include mq("md") {
+    background: url("/assets/images/common/sub-information-icon3-1.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

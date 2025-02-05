@@ -32,6 +32,10 @@
   }
 }
 
+.about__content.about__content--sub {
+  margin: 0;
+}
+
 .about__shisa-img {
   position: absolute;
   top: rem(-26);
@@ -59,6 +63,11 @@
     max-width: rem(880);
   }
 }
+
+.about__fish-img.about__fish-img--sub {
+  width: auto;
+}
+
 .about__fish-img img {
   width: 100%;
   aspect-ratio: 281 / 186;
@@ -68,6 +77,11 @@
     aspect-ratio: 880 / 581;
   }
 }
+
+.about__fish-img.about__fish-img--sub img {
+  aspect-ratio: 345 / 228;
+}
+
 .about__text-wrapper {
   @include mq("md") {
     display: flex;
@@ -78,6 +92,13 @@
     max-width: rem(840);
   }
 }
+
+.about__text-wrapper.about__text-wrapper--sub {
+  @include mq("md") {
+    align-items: center;
+  }
+}
+
 .about__text {
   margin-top: rem(40);
   font-family: $third-font-family;
@@ -93,6 +114,19 @@
   }
 }
 
+.about__text.about__text--sub {
+  margin-top: 0;
+  position: absolute;
+  top: rem(24);
+  left: calc(50% - min(50vw, rem(148)));
+  color: $white;
+  @include mq("md") {
+    position: static;
+    top: 0;
+    left: 0;
+  }
+}
+
 .about__description {
   margin-top: rem(16);
   font-weight: $regular;
@@ -104,10 +138,10 @@
   }
 }
 
-.about__description span {
-  display: none;
+.about__description.about__description--sub {
+  margin-top: rem(40);
   @include mq("md") {
-    display: inline;
+    margin-top: rem(0);
   }
 }
 

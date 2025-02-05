@@ -1,8 +1,0 @@
-@use "global" as *;
-
-.blog-card__lists {
-  margin-top: rem(29);
-  @include mq("md") {
-    margin-top: rem(80);
-  }
-}

@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.layout-sub-information {
+  margin-top: calc(rem(16) - rem(2));
+  @include mq("md") {
+    margin-top: calc(rem(24) + rem(2));
+  }
+}
