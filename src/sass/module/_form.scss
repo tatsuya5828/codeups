@@ -101,11 +101,12 @@
   background-image: url("/assets/images/common/arrow-icon.svg");
   background-repeat: no-repeat;
   background-size: rem(12);
-  background-position: right rem(8) top rem(10);
+  background-position: right rem(8) top rem(14);
   appearance: none;
   cursor: pointer;
   @include mq("md") {
     padding: calc(rem(7) - rem(1)) calc(rem(8) - rem(1)) calc(rem(6) - rem(1)) calc(rem(8) - rem(1));
+    background-position: right rem(8) top rem(10);
   }
 }
 
