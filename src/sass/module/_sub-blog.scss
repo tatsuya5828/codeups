@@ -2,10 +2,6 @@
 
 .sub-blog {
   position: relative;
-  overflow: hidden;
-  @include mq("md") {
-    overflow: visible;
-  }
 }
 
 .sub-blog::before {
@@ -43,7 +39,6 @@
   padding-right: rem(26);
   @include mq(md) {
     margin-top: 0;
-    // margin-left: rem(80);
     padding-inline: 0;
     width: 27.22%;
   }
