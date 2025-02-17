@@ -101,6 +101,155 @@ jQuery(function ($) {
   }
 });
 
+// タブ
+jQuery(function ($) {
+  // ==============================
+  // 【情報タブの切り替え処理】
+  // ==============================
+  function initInformationTabs() {
+    const $tabMenu = $(".sub-information-tab .js-tab-menu");
+    const $tabContent = $(".sub-information .js-tab-content");
+
+    $tabMenu.on("click", function () {
+      const number = $(this).data("number");
+      $tabMenu.add($tabContent).removeClass("is-active");
+      $(this).addClass("is-active");
+      $("#" + number).addClass("is-active");
+    });
+
+    // 【追加】情報タブの切り替え処理
+    $(".js-tab-menu").on("click", function () {
+      const tabNumber = $(this).data("number");
+      $(".information-list__item").removeClass("is-active").hide();
+      $(`.information-list__item[data-tab='${tabNumber}']`).addClass("is-active").show();
+    });
+  }
+
+  // ==============================
+  // 【共通タブの切り替え処理】
+  // ==============================
+  function initSubTabs() {
+    $(".sub-tab").each(function () {
+      const $tabContainer = $(this);
+      const $tabMenu = $tabContainer.find(".js-tab-menu");
+      const $contentContainer = $tabContainer.next();
+      const $contentItems = $contentContainer.find(".js-tab-content");
+
+      // 初期状態で「ALL」タブをアクティブに
+      $tabMenu.filter("[data-number='tab01']").addClass("is-active");
+      $contentItems.addClass("is-active");
+
+      // タブクリック時の動作
+      $tabMenu.on("click", function () {
+        const number = $(this).data("number");
+        $tabMenu.add($contentItems).removeClass("is-active");
+        $(this).addClass("is-active");
+
+        if (number === "tab01") {
+          $contentItems.addClass("is-active");
+        } else {
+          $contentContainer.find(`.js-tab-content[data-tab='${number}']`).addClass("is-active");
+        }
+      });
+    });
+  }
+
+  // ==============================
+  // 【ナビゲーションクリック時のタブ設定】
+  // ==============================
+  function handleNavigationClicks() {
+    $(".nav__item a").on("click", function (e) {
+      const linkText = $(this).text().trim();
+
+      const priceNavItems = ["ライセンス講習", "ファンダイビング", "体験ダイビング"];
+      const isPriceNav = $(this).closest(".nav__items").find("a[href='price.html']").length > 0;
+
+      if (isPriceNav && priceNavItems.includes(linkText)) {
+        e.preventDefault(); // デフォルトの動作をキャンセル
+        window.location.href = "price.html";
+        return; // 以降の処理を実行しない
+      }
+
+      const tabMapping = {
+        ライセンス取得: { tab: "tab02", page: "campaign.html" },
+        貸切体験ダイビング: { tab: "tab03", page: "campaign.html" },
+        ナイトダイビング: { tab: "tab04", page: "campaign.html" },
+        ライセンス講習: { tab: "tab01", page: "information.html" },
+        ファンダイビング: { tab: "tab02", page: "information.html" },
+        体験ダイビング: { tab: "tab03", page: "information.html" },
+      };
+
+      if (tabMapping[linkText]) {
+        e.preventDefault(); // 通常のリンク動作を無効化
+        sessionStorage.setItem("tab", tabMapping[linkText].tab);
+        window.location.href = `${tabMapping[linkText].page}?tab=${tabMapping[linkText].tab}`;
+      }
+    });
+  }
+
+  // ==============================
+  // 【タブの適用処理（共通化）】
+  // ==============================
+  function getQueryParam(name) {
+    return new URLSearchParams(window.location.search).get(name);
+  }
+
+  function handleTabSwitch(tabMenuClass, tabContentClass, contentClass) {
+    const activeTab = sessionStorage.getItem("tab") || getQueryParam("tab");
+    const currentPage = window.location.pathname.split("/").pop();
+
+    function setActiveTab(tabNumber) {
+      $(tabMenuClass + ", " + tabContentClass).removeClass("is-active");
+      $(contentClass).hide();
+
+      $(tabMenuClass + `[data-number='${tabNumber}']`).addClass("is-active");
+      $(tabContentClass + `[data-tab='${tabNumber}']`).addClass("is-active");
+
+      if (tabNumber === "tab01" && (currentPage === "campaign.html" || currentPage === "voice.html")) {
+        $(contentClass).show(); // すべて表示
+      } else {
+        $(contentClass + `[data-tab='${tabNumber}']`).show();
+      }
+    }
+
+    if (activeTab) {
+      setActiveTab(activeTab);
+      sessionStorage.removeItem("tab");
+    }
+
+    $(tabMenuClass).on("click", function () {
+      setActiveTab($(this).data("number"));
+      const newUrl = new URL(window.location);
+      newUrl.searchParams.set("tab", $(this).data("number"));
+      window.history.replaceState(null, "", newUrl);
+    });
+  }
+
+  // ==============================
+  // 【ページごとのタブ処理】
+  // ==============================
+  function initPageSpecificTabs() {
+    const currentPage = window.location.pathname.split("/").pop();
+    const pageTabMapping = {
+      "campaign.html": { menu: ".js-tab-menu", content: ".js-tab-content", item: ".sub-campaign-cards__item" },
+      "voice.html": { menu: ".js-tab-menu", content: ".js-tab-content", item: ".voice-card-lists__item" },
+      "information.html": { menu: ".js-tab-menu", content: ".js-tab-content", item: ".information-list__item" },
+    };
+
+    if (pageTabMapping[currentPage]) {
+      handleTabSwitch(pageTabMapping[currentPage].menu, pageTabMapping[currentPage].content, pageTabMapping[currentPage].item);
+    }
+  }
+
+  // ==============================
+  // 【実行処理】
+  // ==============================
+  initInformationTabs();
+  initSubTabs();
+  handleNavigationClicks();
+  initPageSpecificTabs();
+});
+
 // campaign-swiper
 jQuery(function ($) {
   // スライドの数を取得
@@ -221,33 +370,7 @@ $(window).on("scroll", function () {
   }
 });
 
-// 下層ページ
-// jQuery(function ($) {
-//   // 初期状態で「ALL」タブをアクティブにし、すべてのリストを表示
-//   $('.js-tab-menu[data-number="tab01"]').addClass("is-active");
-//   $(".js-tab-content").addClass("is-active");
-
-//   // タブクリック時の動作
-//   $(".js-tab-menu").on("click", function () {
-//     // すべてのメニューとコンテンツからis-activeクラスを削除
-//     $(".js-tab-menu").removeClass("is-active");
-//     $(".js-tab-content").removeClass("is-active");
-
-//     // クリックされたメニューにis-activeを追加
-//     $(this).addClass("is-active");
-
-//     // 選択されたタブの番号を取得
-//     var number = $(this).data("number");
-
-//     // 特別な処理: ALLタブの場合はすべてのコンテンツを表示
-//     if (number === "tab01") {
-//       $(".js-tab-content").addClass("is-active"); // すべて表示
-//     } else {
-//       // 他のタブの場合は対応するdata-tab属性を持つコンテンツだけを表示
-//       $('.js-tab-content[data-tab="' + number + '"]').addClass("is-active");
-//     }
-//   });
-// });
+// ここから下層ページ
 
 // モーダル
 document.addEventListener("DOMContentLoaded", function () {
@@ -284,96 +407,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// tab切り替え
-jQuery(function ($) {
-  // 【information タブの動作】
-  $(".sub-information-tab .js-tab-menu").on("click", function () {
-    // すべてのメニューとコンテンツから is-active クラスを削除
-    $(".sub-information-tab .js-tab-menu").removeClass("is-active");
-    $(".sub-information .js-tab-content").removeClass("is-active");
-
-    // クリックされたメニューに is-active を追加
-    $(this).addClass("is-active");
-
-    // 選択されたタブの番号を取得
-    var number = $(this).data("number");
-
-    // 対応するコンテンツを表示
-    $("#" + number).addClass("is-active");
-  });
-
-  // 【campaign タブの動作】
-  // 初期状態で「ALL」タブをアクティブにし、すべてのリストを表示
-  $(".sub-campaign-tab .js-tab-menu[data-number='tab01']").addClass("is-active");
-  $(".sub-campaign .js-tab-content").addClass("is-active");
-
-  // タブクリック時の動作
-  $(".sub-campaign-tab .js-tab-menu").on("click", function () {
-    // すべてのメニューとコンテンツから is-active クラスを削除
-    $(".sub-campaign-tab .js-tab-menu").removeClass("is-active");
-    $(".sub-campaign .js-tab-content").removeClass("is-active");
-
-    // クリックされたメニューに is-active を追加
-    $(this).addClass("is-active");
-
-    // 選択されたタブの番号を取得
-    var number = $(this).data("number");
-
-    // 特別な処理: ALL タブの場合はすべてのコンテンツを表示
-    if (number === "tab01") {
-      $(".sub-campaign .js-tab-content").addClass("is-active");
-    } else {
-      // 他のタブの場合は対応する data-tab 属性を持つコンテンツだけを表示
-      $('.sub-campaign .js-tab-content[data-tab="' + number + '"]').addClass("is-active");
-    }
-  });
-
-  // 【voice タブの動作】
-  // 初期状態で「ALL」タブをアクティブにし、すべてのリストを表示
-  $(".sub-voice-tab .js-tab-menu[data-number='tab01']").addClass("is-active");
-  $(".sub-voice .js-tab-content").addClass("is-active");
-
-  // タブクリック時の動作
-  $(".sub-voice-tab .js-tab-menu").on("click", function () {
-    // すべてのメニューとコンテンツから is-active クラスを削除
-    $(".sub-voice-tab .js-tab-menu").removeClass("is-active");
-    $(".sub-voice .js-tab-content").removeClass("is-active");
-
-    // クリックされたメニューに is-active を追加
-    $(this).addClass("is-active");
-
-    // 選択されたタブの番号を取得
-    var number = $(this).data("number");
-
-    // 特別な処理: ALL タブの場合はすべてのコンテンツを表示
-    if (number === "tab01") {
-      $(".sub-voice .js-tab-content").addClass("is-active");
-    } else {
-      // 他のタブの場合は対応する data-tab 属性を持つコンテンツだけを表示
-      $('.sub-voice .js-tab-content[data-tab="' + number + '"]').addClass("is-active");
-    }
-  });
-});
-
 // ブログアコーディオン
 jQuery(function ($) {
   // すべてのアーカイブを初期状態で非表示にする
-  $(".sub-blog__archive-answer").hide();
+  $(".sub-blog-archive__answer").hide();
   $(".js-faq-question").removeClass("is-open");
 
   // 2023年の要素だけ開いた状態にする
-  $(".sub-blog__archive-link:contains('2023')").nextAll(".sub-blog__archive-answer").show();
-  $(".sub-blog__archive-link:contains('2023')").addClass("is-open");
+  $(".sub-blog-archive__link:contains('2023')").nextAll(".sub-blog-archive__answer").show();
+  $(".sub-blog-archive__link:contains('2023')").addClass("is-open");
 
   // クリック時に開閉動作を切り替える
   $(".js-faq-question").on("click", function () {
     if ($(this).hasClass("is-open")) {
       // 開いている場合は閉じる
-      $(this).nextAll(".sub-blog__archive-answer").slideUp();
+      $(this).nextAll(".sub-blog-archive__answer").slideUp();
       $(this).removeClass("is-open");
     } else {
       // 閉じている場合は開く
-      $(this).nextAll(".sub-blog__archive-answer").slideDown();
+      $(this).nextAll(".sub-blog-archive__answer").slideDown();
       $(this).addClass("is-open");
     }
   });

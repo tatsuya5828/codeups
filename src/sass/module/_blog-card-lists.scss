@@ -16,28 +16,10 @@
 .blog-card__lists.blog-card__lists--sub {
   margin-top: 0;
   @include mq(md) {
-    max-width: rem(706);
     row-gap: rem(79);
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
-// .blog-card__lists.blog-card__lists--sub::after {
-//   content: "";
-//   position: absolute;
-//   background: url("/assets/images/common/sub-blog-wavyline.webp");
-//   background-position: center left;
-//   background-repeat: repeat-x;
-//   background-size: contain;
-//   bottom: 15%;
-//   left: rem(-15);
-//   width: rem(630);
-//   height: rem(61);
-//   z-index: 1;
-//   @include mq("md") {
-//     background: none;
-//   }
-// }
 
 .blog-card__lists.blog-card__lists--sub2 {
   margin-top: rem(0);

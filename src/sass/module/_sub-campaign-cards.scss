@@ -11,11 +11,15 @@
   }
 }
 
-.sub-campaign-cards__item{
+.sub-campaign-cards__item {
   display: none;
 }
 
 .sub-campaign-cards__item.is-active {
   display: block;
   animation: fade 0.3s;
+}
+
+.sub-campaign__cards {
+  margin-top: rem(40);
 }

@@ -1,8 +1,8 @@
 @use "global" as *;
 
-.layout-sub-blog {
+.layout-sub-voice {
   margin-top: rem(52);
   @include mq("md") {
-    margin-top: rem(149);
+    margin-top: rem(150);
   }
 }

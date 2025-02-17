@@ -10,13 +10,13 @@
   background: url("/assets/images/common/voice-fish-img.webp");
   background-repeat: no-repeat;
   background-size: cover;
-  top: rem(-169);
+  top: rem(-95);
   left: calc(max(0px, 50% - min(48vw, rem(172))));
   width: rem(120);
   height: rem(55);
   z-index: -1;
   @include mq("md") {
-    top: rem(-181);
+    top: rem(-72);
     left: calc(max(0px, 50% - min(48vw, rem(620))));
     width: rem(301);
     height: rem(138);
@@ -25,4 +25,11 @@
 
 .sub-information__inner {
   max-width: rem(630);
+}
+
+.sub-information__list {
+  margin-top: calc(rem(16) - 2px);
+  @include mq("md") {
+    margin-top: calc(rem(24) - 2px);
+  }
 }

@@ -31,62 +31,62 @@
   display: none;
 }
 
-.drawer__nav {
-  display: grid;
-  column-gap: rem(25);
-  grid-template-columns: repeat(2, 1fr);
-  padding-left: rem(23);
-}
+// .drawer__nav {
+//   display: grid;
+//   column-gap: rem(25);
+//   grid-template-columns: repeat(2, 1fr);
+//   padding-left: rem(23);
+// }
 
-.drawer__nav-items:nth-child(1) {
-  order: 1;
-}
+// .drawer__nav-items:nth-child(1) {
+//   order: 1;
+// }
 
-.drawer__nav-items:nth-child(2) {
-  order: 3;
-}
+// .drawer__nav-items:nth-child(2) {
+//   order: 3;
+// }
 
-.drawer__nav-items:nth-child(3) {
-  order: 2;
-}
+// .drawer__nav-items:nth-child(3) {
+//   order: 2;
+// }
 
-.drawer__nav-items:nth-child(4) {
-  order: 4;
-}
+// .drawer__nav-items:nth-child(4) {
+//   order: 4;
+// }
 
-.drawer__nav-item.drawer__nav-item--title {
-  position: relative;
-  margin-top: rem(15);
-}
+// .drawer__nav-item.drawer__nav-item--title {
+//   position: relative;
+//   margin-top: rem(15);
+// }
 
-.drawer__nav-item.drawer__nav-item--title a {
-  display: inline-block;
-  color: $white;
-  font-size: rem(16);
-  font-weight: $bold;
-  line-height: calc(18 / 16);
-  padding: rem(12) 0;
-}
+// .drawer__nav-item.drawer__nav-item--title a {
+//   display: inline-block;
+//   color: $white;
+//   font-size: rem(16);
+//   font-weight: $bold;
+//   line-height: calc(18 / 16);
+//   padding: rem(12) 0;
+// }
 
-.drawer__nav-item.drawer__nav-item--title::before {
-  content: "";
-  position: absolute;
-  top: rem(12);
-  left: rem(-22);
-  background: url("/assets/images/common/footer-icon.webp");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: rem(18);
-  height: rem(18);
-}
+// .drawer__nav-item.drawer__nav-item--title::before {
+//   content: "";
+//   position: absolute;
+//   top: rem(12);
+//   left: rem(-22);
+//   background: url("/assets/images/common/footer-icon.webp");
+//   background-position: center center;
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   width: rem(18);
+//   height: rem(18);
+// }
 
-.drawer__nav-item a {
-  display: inline-block;
-  padding: rem(12) 0;
-  color: $white;
-  font-size: rem(16);
-  font-weight: $regular;
-  line-height: calc(18 / 16);
-  white-space: nowrap;
-}
+// .drawer__nav-item a {
+//   display: inline-block;
+//   padding: rem(12) 0;
+//   color: $white;
+//   font-size: rem(16);
+//   font-weight: $regular;
+//   line-height: calc(18 / 16);
+//   white-space: nowrap;
+// }

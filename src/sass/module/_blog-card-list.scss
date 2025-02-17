@@ -9,12 +9,6 @@
   padding: rem(16) rem(16) rem(24);
 }
 
-.blog-card-list.blog-card-list--background {
-  box-shadow: none;
-  background-color: transparent;
-  padding: 0;
-}
-
 .blog-card-list:hover {
   opacity: 1;
 }
@@ -22,13 +16,6 @@
 .blog-card-list__item-img {
   width: 100%;
   overflow: hidden;
-}
-
-.blog-card-lists__item:first-child .blog-card-list__item-img.blog-card-list__item-img--sub2 {
-  margin-top: rem(24);
-  @include mq("md") {
-    margin-top: rem(40);
-  }
 }
 
 .blog-card-list__item-img img {
@@ -44,20 +31,12 @@
   }
 }
 
-.blog-card-list:hover .blog-card-list__item-img.blog-card-list__item-img--sub2 img {
-  transform: none;
-}
-
 .blog-card-list__title-wrap {
   margin-top: rem(15);
   border-bottom: 1px solid #408f95;
   @include mq("md") {
     margin-top: rem(24);
   }
-}
-
-.blog-card-list__title-wrap.blog-card-list__title-wrap--sub2 {
-  margin-top: rem(0);
 }
 
 .blog-card-list__item-category {
@@ -68,10 +47,6 @@
   font-family: $third-font-family;
 }
 
-.blog-card-list__item-category.blog-card-list__item-category--font {
-  font-size: rem(14);
-}
-
 .blog-card-list__item-title {
   color: $green;
   padding-bottom: rem(4);
@@ -79,27 +54,9 @@
   line-height: calc(24 / 16);
 }
 
-.blog-card-list__item-title.blog-card-list__item-title--font {
-  margin-top: rem(8);
-  font-size: rem(24);
-  line-height: calc(29 / 24);
-
-  @include mq("md") {
-    font-size: rem(32);
-    line-height: calc(38 / 32);
-  }
-}
-
 .blog-card-list__item-text {
   color: $green;
   margin-top: rem(16);
   font-weight: $regular;
   line-height: calc(24 / 16);
-}
-
-.blog-card-list__item-text.blog-card-list__item-text--margin {
-  margin-top: rem(24);
-  @include mq("md") {
-    margin-top: rem(40);
-  }
 }

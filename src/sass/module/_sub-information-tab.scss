@@ -28,7 +28,7 @@
   @include mq(md) {
     position: relative;
     padding: rem(29) rem(30) rem(26) rem(102);
-    font-size: rem(24);
+    font-size: clamp(rem(16), 1.91vw, rem(24));
     line-height: calc(35 / 24);
   }
 }

@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.sub-voice-tab__inner {
+.sub-tab__inner {
   display: flex;
   justify-content: center;
   @include mq("md") {
@@ -8,7 +8,7 @@
   }
 }
 
-.sub-voice-tab__menu {
+.sub-tab__menu {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: rem(20);
@@ -19,7 +19,7 @@
   }
 }
 
-.sub-voice-tab__menu-item {
+.sub-tab__menu-item {
   padding-block: calc(rem(6) - rem(1));
   min-width: rem(162);
   width: fit-content;
@@ -31,11 +31,9 @@
   text-align: center;
   transition: 0.3s;
   cursor: pointer;
-  @include mq(md) {
-  }
 }
 
-.sub-voice-tab__menu-item:hover {
+.sub-tab__menu-item:hover {
   @include mq("md") {
     color: $white;
     background-color: $green3;
@@ -44,7 +42,7 @@
   }
 }
 
-.sub-voice-tab__menu-item.is-active {
+.sub-tab__menu-item.is-active {
   color: #fff;
   background-color: $green3;
 }

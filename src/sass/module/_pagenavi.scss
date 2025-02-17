@@ -13,12 +13,15 @@
 
 .pagenavi .wp-pagenavi .pagenavi__wrap {
   display: flex;
-  gap: rem(13);
+  gap: rem(12);
 }
 
 .pagenavi .wp-pagenavi a,
 .pagenavi .wp-pagenavi span {
-  padding: calc(rem(10) - rem(1)) calc(rem(14) - rem(1)) calc(rem(10) - rem(1));
+  text-align: center;
+  place-content: center;
+  min-width: rem(38);
+  height: rem(38);
   font-weight: $bold;
   line-height: 1;
   white-space: nowrap;
@@ -46,11 +49,10 @@
 
 .pagenavi .wp-pagenavi .previouspostslink {
   position: relative;
-  padding: rem(10.75) rem(18);
-}
-
-.pagenavi .wp-pagenavi .previouspostslink.previouspostslink--padding {
-  padding: calc(rem(19) - rem(1)) calc(rem(19) - rem(1));
+  display: grid;
+  place-content: center;
+  min-width: rem(38);
+  height: rem(38);
 }
 
 .previouspostslink::before,
@@ -84,7 +86,10 @@
 
 .pagenavi .wp-pagenavi .nextpostslink {
   position: relative;
-  padding: rem(10.75) rem(18);
+  display: grid;
+  place-content: center;
+  min-width: rem(38);
+  height: rem(38);
 }
 
 .nextpostslink::before,

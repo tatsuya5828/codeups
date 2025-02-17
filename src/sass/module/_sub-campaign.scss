@@ -10,13 +10,13 @@
   background: url("/assets/images/common/voice-fish-img.webp");
   background-repeat: no-repeat;
   background-size: cover;
-  top: rem(-148);
+  top: rem(-25);
   left: calc(max(0px, 50% - min(48vw, rem(172))));
   width: rem(120);
   height: rem(55);
   z-index: -1;
   @include mq("md") {
-    top: rem(-142);
+    top: rem(-70);
     left: calc(max(0px, 50% - min(48vw, rem(620))));
     width: rem(301);
     height: rem(138);

@@ -7,10 +7,11 @@
   border-collapse: collapse;
 }
 
-.sub-price-lists__wrapper + .sub-price-lists__wrapper {
-  margin-top: calc(rem(38) - rem(1));
+.sub-price-lists {
+  display: grid;
+  gap: rem(37);
   @include mq("md") {
-    margin-top: rem(80);
+    gap: rem(80);
   }
 }
 
