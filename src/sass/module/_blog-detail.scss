@@ -76,9 +76,9 @@
 .blog-detail li::before {
   content: "";
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: rem(12);
   left: 0;
+  transform: translateY(-50%);
   width: rem(18);
   height: rem(18);
   background: url("/assets/images/common/sub-blog-icon-img.svg");
