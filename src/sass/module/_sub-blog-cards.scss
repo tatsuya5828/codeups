@@ -1,5 +1,6 @@
 @use "global" as *;
 
-.sub-blog-cards__item + .sub-blog-cards__item {
-  margin-top: rem(40);
+.sub-blog-cards {
+  display: grid;
+  gap: rem(40);
 }

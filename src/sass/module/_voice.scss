@@ -38,6 +38,13 @@
   }
 }
 
+.voice__lists {
+  margin-top: rem(45);
+  @include mq("md") {
+    margin-top: rem(30);
+  }
+}
+
 .voice__btn {
   margin-top: rem(39);
   text-align: center;

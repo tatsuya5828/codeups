@@ -1,7 +1,11 @@
 @use "global" as *;
 
-.sub-faq-list__item + .sub-faq-list__item {
-  margin-top: rem(40);
+// .sub-faq-list__item + .sub-faq-list__item {
+//   margin-top: rem(40);
+// }
+.sub-faq-lists {
+  display: grid;
+  gap: rem(40);
 }
 
 .sub-faq-list__item-question {

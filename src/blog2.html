@@ -156,7 +156,7 @@
     <!-- MV -->
     <section class="sub-mv">
       <div class="sub-mv__inner">
-        <h1 class="sub-mv__title">Blog</h1>
+        <div class="sub-mv__title">Blog</div>
         <div class="sub-mv__img">
           <picture>
             <source srcset="./assets/images/common/blog-mv-img.webp" media="(min-width: 768px)" />
@@ -186,34 +186,34 @@
     <!-- ブログ -->
     <section class="sub-blog layout-sub-blog">
       <div class="sub-blog__inner inner">
-        <article class="blog-detail">
+        <article class="sub-blog__detail blog-detail">
           <div class="blog-detail__title-wrap">
             <time datetime="2023-11-17" class="blog-detail__item-category">2023.11/17</time>
-            <h2 class="blog-detail__item-title">ライセンス取得</h2>
+            <h1 class="blog-detail__item-title">ライセンス取得</h1>
           </div>
           <div class="blog-detail__item-img">
             <img src="./assets/images/common/blog-img.webp" alt="青い海の中に珊瑚礁" loading="lazy">
           </div>
-          <p>
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
-          </p>
-          <div class="blog-detail__item-img">
+          <div class="blog-detail__container">
+            <p>
+              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+            </p>
             <img src="./assets/images/common/blog-img.webp" alt="青い海の中に珊瑚礁" loading="lazy">
+            <p>
+              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+            </p>
+            <ul>
+              <li>リスト１</li>
+              <li>リスト2</li>
+              <li>リスト3</li>
+            </ul>
+            <p>
+              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+            </p>
           </div>
-          <p>
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
-          </p>
-          <ul>
-            <li>リスト１</li>
-            <li>リスト2</li>
-            <li>リスト3</li>
-          </ul>
-          <p>
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
-          </p>
           <!-- ページネーション -->
-          <div class="pagenavi pagenavi--gap layout-pagenavi layout-pagenavi--blog2">
-            <div class="pagenavi__inner inner">
+          <div class="blog-detail__pagenavi pagenavi pagenavi--gap">
+            <div class="pagenavi__inner">
               <!-- WP-PageNaviで出力される部分 ここから -->
               <div class='wp-pagenavi' role='navigation'>
                 <a class="previouspostslink" rel="prev" href="#"></a>
@@ -224,11 +224,11 @@
           </div>
         </article>
         <!-- サイドバー -->
-        <aside class="sub-blog__sidebar sideber">
-          <ul class="sideber__list sub-blog-sideber">
-            <li class="sub-blog-sideber__item">
-              <h2 class="sub-blog-sideber__title">人気記事</h2>
-              <ul class="sub-blog-sideber__list sub-blog-lists">
+        <aside class="sub-blog__sidebar sidebar">
+          <ul class="sidebar__list sub-blog-sidebar">
+            <li class="sub-blog-sidebar__item">
+              <h2 class="sub-blog-sidebar__title">人気記事</h2>
+              <ul class="sub-blog-sidebar__list sub-blog-lists">
                 <li class="sub-blog-lists__popularity-item">
                   <a href="#" class="sub-blog-popularity">
                     <div class="sub-blog-popularity__item-img">
@@ -264,9 +264,9 @@
                 </li>
               </ul>
             </li>
-            <li class="sub-blog-sideber__item">
-              <h2 class="sub-blog-sideber__title">口コミ</h2>
-              <div class="sub-blog-sideber__review">
+            <li class="sub-blog-sidebar__item">
+              <h2 class="sub-blog-sidebar__title">口コミ</h2>
+              <div class="sub-blog-sidebar__review">
                 <div class="sub-blog-review">
                   <div class="sub-blog-review__item-img">
                     <img src="./assets/images/common/sub-blog-img.webp" alt="カップルが座って笑っている様子" loading="lazy">
@@ -283,9 +283,9 @@
                 </div>
               </div>
             </li>
-            <li class="sub-blog-sideber__item">
-              <h2 class="sub-blog-sideber__title">キャンペーン</h2>
-              <ul class="sub-blog-sideber__cards sub-blog-cards">
+            <li class="sub-blog-sidebar__item">
+              <h2 class="sub-blog-sidebar__title">キャンペーン</h2>
+              <ul class="sub-blog-sidebar__cards sub-blog-cards">
                 <li class="sub-blog-cards__item">
                   <div class="campaign-card">
                     <div class="campaign-card__item">
@@ -331,17 +331,25 @@
                 </a>
               </div>
             </li>
-            <li class="sub-blog-sideber__item">
-              <h2 class="sub-blog-sideber__title">アーカイブ</h2>
-              <ul class="sub-blog-sideber__archive-list sub-blog-archive">
+            <li class="sub-blog-sidebar__item">
+              <h2 class="sub-blog-sidebar__title">アーカイブ</h2>
+              <ul class="sub-blog-sidebar__archive-list sub-blog-archive">
                 <li class="sub-blog-archive__item">
-                  <p class="sub-blog-archive__link js-faq-question">2023</p>
-                  <a href="#" class="sub-blog-archive__answer">3月</a>
-                  <a href="#" class="sub-blog-archive__answer">2月</a>
-                  <a href="#" class="sub-blog-archive__answer">1月</a>
+                  <p class="sub-blog-archive__link js-archive-year">2023</p>
+                  <ul class="sub-blog-archive__month">
+                    <li class="sub-blog-archive__month-item">
+                      <a href="#">3月</a>
+                    </li>
+                    <li class="sub-blog-archive__month-item">
+                      <a href="#">2月</a>
+                    </li>
+                    <li class="sub-blog-archive__month-item">
+                      <a href="#">1月</a>
+                    </li>
+                  </ul>
                 </li>
                 <li class="sub-blog-archive__item">
-                  <p class="sub-blog-archive__link js-faq-question">2022</p>
+                  <p class="sub-blog-archive__link js-archive-year">2022</p>
                 </li>
               </ul>
             </li>

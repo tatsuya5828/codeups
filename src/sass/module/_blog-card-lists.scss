@@ -2,31 +2,18 @@
 
 .blog-card-lists {
   position: relative;
-  margin-top: rem(29);
   display: grid;
   gap: rem(39);
   grid-template-columns: repeat(1, 1fr);
   @include mq(md) {
-    margin-top: rem(80);
     gap: rem(40);
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.blog-card__lists.blog-card__lists--sub {
-  margin-top: 0;
-  @include mq(md) {
-    row-gap: rem(79);
+.blog-card-lists.blog-card-lists--2col {
+  @include mq("md") {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.blog-card__lists.blog-card__lists--sub2 {
-  margin-top: rem(0);
-  gap: rem(26);
-  @include mq(md) {
-    gap: rem(40);
-    max-width: rem(700);
-    grid-template-columns: repeat(1, 1fr);
+    row-gap: rem(80);
   }
 }

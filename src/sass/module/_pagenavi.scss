@@ -20,6 +20,7 @@
 .pagenavi .wp-pagenavi span {
   text-align: center;
   place-content: center;
+  padding-inline: rem(5);
   min-width: rem(38);
   height: rem(38);
   font-weight: $bold;

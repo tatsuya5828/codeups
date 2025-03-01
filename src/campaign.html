@@ -183,18 +183,22 @@
     <section class="sub-campaign layout-sub-campaign">
       <div class="sub-campaign__inner inner">
         <!-- タブ -->
-        <div class="sub-tab">
-          <div class="sub-tab__inner">
-            <ul class="sub-tab__menu">
-              <li class="sub-tab__menu-item js-tab-menu is-active" data-number="tab01">ALL</li>
-              <li class="sub-tab__menu-item js-tab-menu" data-number="tab02">ライセンス講習</li>
-              <li class="sub-tab__menu-item js-tab-menu" data-number="tab03">ファンダイビング</li>
-              <li class="sub-tab__menu-item js-tab-menu" data-number="tab04">体験ダイビング</li>
-            </ul>
-          </div>
-        </div>
+        <ul class="sub-campaign__tab sub-tab">
+          <li class="sub-tab__menu-item is-active">
+            <a href="#">ALL</a>
+          </li>
+          <li class="sub-tab__menu-item">
+            <a href="#">ライセンス講習</a>
+          </li>
+          <li class="sub-tab__menu-item">
+            <a href="#">ファンダイビング</a>
+          </li>
+          <li class="sub-tab__menu-item">
+            <a href="#">体験ダイビング</a>
+          </li>
+        </ul>
         <ul class="sub-campaign__cards sub-campaign-cards">
-          <li class="sub-campaign-cards__item js-tab-content is-active" data-tab="tab02">
+          <li class="sub-campaign-cards__item">
             <div class="campaign-card">
               <div class="campaign-card__item">
                 <div class="campaign-card__img campaign-card__img--sub">
@@ -220,7 +224,7 @@
                     <time class="campaign-card__meta-date" datetime="2023-09-30">9/30</time>
                     <p class="campaign-card__meta-text">ご予約・お問い合わせはコチラ</p>
                     <div class="campaign-card__btn">
-                      <a href="#" class="btn"><span>Contact&nbsp;us</span>
+                      <a href="contact.html" class="btn"><span>Contact&nbsp;us</span>
                         <span class="btn__arrow"></span>
                       </a>
                     </div>
@@ -229,7 +233,7 @@
               </div>
             </div>
           </li>
-          <li class="sub-campaign-cards__item js-tab-content" data-tab="tab04">
+          <li class="sub-campaign-cards__item">
             <div class="campaign-card">
               <div class="campaign-card__item">
                 <div class="campaign-card__img campaign-card__img--sub">
@@ -255,7 +259,7 @@
                     <time class="campaign-card__meta-date" datetime="2023-09-30">9/30</time>
                     <p class="campaign-card__meta-text">ご予約・お問い合わせはコチラ</p>
                     <div class="campaign-card__btn">
-                      <a href="#" class="btn"><span>Contact&nbsp;us</span>
+                      <a href="contact.html" class="btn"><span>Contact&nbsp;us</span>
                         <span class="btn__arrow"></span>
                       </a>
                     </div>
@@ -264,7 +268,7 @@
               </div>
             </div>
           </li>
-          <li class="sub-campaign-cards__item js-tab-content" data-tab="tab04">
+          <li class="sub-campaign-cards__item">
             <div class="campaign-card">
               <div class="campaign-card__item">
                 <div class="campaign-card__img campaign-card__img--sub">
@@ -290,7 +294,7 @@
                     <time class="campaign-card__meta-date" datetime="2023-09-30">9/30</time>
                     <p class="campaign-card__meta-text">ご予約・お問い合わせはコチラ</p>
                     <div class="campaign-card__btn">
-                      <a href="#" class="btn"><span>Contact&nbsp;us</span>
+                      <a href="contact.html" class="btn"><span>Contact&nbsp;us</span>
                         <span class="btn__arrow"></span>
                       </a>
                     </div>
@@ -299,7 +303,7 @@
               </div>
             </div>
           </li>
-          <li class="sub-campaign-cards__item js-tab-content" data-tab="tab03">
+          <li class="sub-campaign-cards__item">
             <div class="campaign-card">
               <div class="campaign-card__item">
                 <div class="campaign-card__img campaign-card__img--sub">
@@ -325,7 +329,7 @@
                     <time class="campaign-card__meta-date" datetime="2023-09-30">9/30</time>
                     <p class="campaign-card__meta-text">ご予約・お問い合わせはコチラ</p>
                     <div class="campaign-card__btn">
-                      <a href="#" class="btn"><span>Contact&nbsp;us</span>
+                      <a href="contact.html" class="btn"><span>Contact&nbsp;us</span>
                         <span class="btn__arrow"></span>
                       </a>
                     </div>
@@ -336,8 +340,8 @@
           </li>
         </ul>
         <!-- ページネーション -->
-        <div class="pagenavi layout-pagenavi">
-          <div class="pagenavi__inner inner">
+        <div class="sub-campaign__pagenavi pagenavi">
+          <div class="pagenavi__inner">
             <!-- WP-PageNaviで出力される部分 ここから -->
             <div class='wp-pagenavi' role='navigation'>
               <a class="previouspostslink" rel="prev" href="#"></a>

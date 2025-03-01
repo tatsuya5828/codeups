@@ -10,8 +10,8 @@
   background: url("/assets/images/common/voice-fish-img.webp");
   background-repeat: no-repeat;
   background-size: cover;
-  top: rem(27);
-  left: calc(max(0px, 50% - min(48vw, rem(172))));
+  top: rem(-24);
+  left: calc(max(0px, 50% - min(46vw, rem(400))));
   width: rem(120);
   height: rem(55);
   z-index: -1;
@@ -30,6 +30,13 @@
   @include mq(md) {
     flex-direction: row;
     gap: rem(86);
+  }
+}
+
+.sub-blog__pagenavi {
+  margin-top: rem(85);
+  @include mq("md") {
+    margin-top: rem(80);
   }
 }
 

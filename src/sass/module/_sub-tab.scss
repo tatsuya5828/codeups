@@ -1,28 +1,30 @@
 @use "global" as *;
 
-.sub-tab__inner {
-  display: flex;
-  justify-content: center;
-  @include mq("md") {
-    justify-content: flex-start;
-  }
-}
-
-.sub-tab__menu {
+// .sub-tab__inner {
+//   display: flex;
+//   justify-content: center;
+//   @include mq("md") {
+//     justify-content: flex-start;
+//   }
+// }
+.sub-tab {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: rem(20);
+  place-content: center;
+  grid-template-columns: repeat(2, auto);
+  gap: rem(20);
   row-gap: calc(rem(16) - rem(2));
   @include mq("md") {
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: rem(32);
+    grid-template-columns: repeat(auto-fit, minmax(auto, rem(162)));
+    place-content: initial;
+    gap: rem(32);
   }
 }
 
-.sub-tab__menu-item {
-  padding-block: calc(rem(6) - rem(1));
+.sub-tab__menu-item a {
+  display: inline-block;
+  padding: calc(rem(6) - rem(1));
   min-width: rem(162);
-  width: fit-content;
+  // width: fit-content;
   font-size: rem(14);
   line-height: calc(22 / 14);
   color: $green3;
@@ -30,10 +32,10 @@
   background-color: $white;
   text-align: center;
   transition: 0.3s;
-  cursor: pointer;
+  // cursor: pointer;
 }
 
-.sub-tab__menu-item:hover {
+.sub-tab__menu-item a:hover {
   @include mq("md") {
     color: $white;
     background-color: $green3;
@@ -42,16 +44,16 @@
   }
 }
 
-.sub-tab__menu-item.is-active {
-  color: #fff;
+.sub-tab__menu-item.is-active a {
+  color: $white;
   background-color: $green3;
 }
 
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+// @keyframes fade {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }

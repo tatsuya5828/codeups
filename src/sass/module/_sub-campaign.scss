@@ -11,7 +11,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   top: rem(-25);
-  left: calc(max(0px, 50% - min(48vw, rem(172))));
+  left: calc(max(0px, 50% - min(46vw, rem(400))));
   width: rem(120);
   height: rem(55);
   z-index: -1;
@@ -24,7 +24,12 @@
 }
 
 .sub-campaign__inner {
-  max-width: rem(600);
-  padding-left: rem(48);
-  padding-right: rem(47);
+  max-width: rem(694);
+}
+
+.sub-campaign__pagenavi {
+  margin-top: rem(85);
+  @include mq("md") {
+    margin-top: rem(80);
+  }
 }

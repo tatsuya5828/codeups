@@ -182,18 +182,22 @@
     <section class="sub-voice layout-sub-voice">
       <div class="sub-voice__inner inner">
         <!-- タブ -->
-        <div class="sub-tab">
-          <div class="sub-tab__inner">
-            <ul class="sub-tab__menu">
-              <li class="sub-tab__menu-item js-tab-menu is-active" data-number="tab01">ALL</li>
-              <li class="sub-tab__menu-item js-tab-menu" data-number="tab02">ライセンス講習</li>
-              <li class="sub-tab__menu-item js-tab-menu" data-number="tab03">ファンダイビング</li>
-              <li class="sub-tab__menu-item js-tab-menu" data-number="tab04">体験ダイビング</li>
-            </ul>
-          </div>
-        </div>
-        <ul class="sub-voice__lists voice-card-lists voice-card-lists--sub">
-          <li class="voice-card-lists__item voice-card-lists__item--none js-tab-content is-active" data-tab="tab02">
+        <ul class="sub-voice__tab sub-tab">
+          <li class="sub-tab__menu-item is-active">
+            <a href="#">ALL</a>
+          </li>
+          <li class="sub-tab__menu-item">
+            <a href="#">ライセンス講習</a>
+          </li>
+          <li class="sub-tab__menu-item">
+            <a href="#">ファンダイビング</a>
+          </li>
+          <li class="sub-tab__menu-item">
+            <a href="#">体験ダイビング</a>
+          </li>
+        </ul>
+        <ul class="sub-voice__lists voice-card-lists">
+          <li class="voice-card-lists__item">
             <a href="#" class="voice-card-list">
               <div class="voice-card-list__item-content">
                 <div class="voice-card-list__item-info">
@@ -213,7 +217,7 @@
               </p>
             </a>
           </li>
-          <li class="voice-card-lists__item voice-card-lists__item--none js-tab-content is-active" data-tab="tab03">
+          <li class="voice-card-lists__item">
             <a href="#" class="voice-card-list">
               <div class="voice-card-list__item-content">
                 <div class="voice-card-list__item-info">
@@ -233,7 +237,7 @@
               </p>
             </a>
           </li>
-          <li class="voice-card-lists__item voice-card-lists__item--none js-tab-content is-active" data-tab="tab04">
+          <li class="voice-card-lists__item">
             <a href="#" class="voice-card-list">
               <div class="voice-card-list__item-content">
                 <div class="voice-card-list__item-info">
@@ -253,7 +257,7 @@
               </p>
             </a>
           </li>
-          <li class="voice-card-lists__item voice-card-lists__item--none js-tab-content is-active" data-tab="tab04">
+          <li class="voice-card-lists__item">
             <a href="#" class="voice-card-list">
               <div class="voice-card-list__item-content">
                 <div class="voice-card-list__item-info">
@@ -273,7 +277,7 @@
               </p>
             </a>
           </li>
-          <li class="voice-card-lists__item voice-card-lists__item--none js-tab-content is-active" data-tab="tab03">
+          <li class="voice-card-lists__item">
             <a href="#" class="voice-card-list">
               <div class="voice-card-list__item-content">
                 <div class="voice-card-list__item-info">
@@ -293,7 +297,7 @@
               </p>
             </a>
           </li>
-          <li class="voice-card-lists__item voice-card-lists__item--none js-tab-content is-active" data-tab="tab02">
+          <li class="voice-card-lists__item">
             <a href="#" class="voice-card-list">
               <div class="voice-card-list__item-content">
                 <div class="voice-card-list__item-info">
@@ -315,8 +319,8 @@
           </li>
         </ul>
         <!-- ページネーション -->
-        <div class="pagenavi layout-pagenavi layout-pagenavi--voice">
-          <div class="pagenavi__inner inner">
+        <div class="sub-voice__pagenavi pagenavi">
+          <div class="pagenavi__inner">
             <!-- WP-PageNaviで出力される部分 ここから -->
             <div class='wp-pagenavi' role='navigation'>
               <a class="previouspostslink" rel="prev" href="#"></a>

@@ -104,53 +104,54 @@ jQuery(function ($) {
 // タブ
 jQuery(function ($) {
   // ==============================
-  // 【情報タブの切り替え処理】
+  // タブの切り替え処理
+  // ==============================
+  function setActiveTab(tabSelector, contentSelector, listSelector, tabName) {
+    $(tabSelector).removeClass("is-active");
+    $(contentSelector).removeClass("is-active");
+    $(listSelector).hide();
+
+    $(`${tabSelector}[data-number='${tabName}']`).addClass("is-active");
+    $(`${contentSelector}[data-tab='${tabName}']`).addClass("is-active");
+    $(`${listSelector}[data-tab='${tabName}']`).show();
+  }
+
+  // ==============================
+  // 【共通】セッションストレージからタブ取得
+  // ==============================
+  function getStoredTab() {
+    return sessionStorage.getItem("tab") || new URLSearchParams(window.location.search).get("tab");
+  }
+
+  // ==============================
+  // 【情報タブの切り替え】
   // ==============================
   function initInformationTabs() {
-    const $tabMenu = $(".sub-information-tab .js-tab-menu");
-    const $tabContent = $(".sub-information .js-tab-content");
+    const storedTab = getStoredTab();
 
-    $tabMenu.on("click", function () {
-      const number = $(this).data("number");
-      $tabMenu.add($tabContent).removeClass("is-active");
-      $(this).addClass("is-active");
-      $("#" + number).addClass("is-active");
-    });
+    if (storedTab) {
+      setActiveTab(".js-tab-menu", ".js-tab-content", ".information-list__item", storedTab);
+      sessionStorage.removeItem("tab");
+    }
 
-    // 【追加】情報タブの切り替え処理
     $(".js-tab-menu").on("click", function () {
-      const tabNumber = $(this).data("number");
-      $(".information-list__item").removeClass("is-active").hide();
-      $(`.information-list__item[data-tab='${tabNumber}']`).addClass("is-active").show();
+      setActiveTab(".js-tab-menu", ".js-tab-content", ".information-list__item", $(this).data("number"));
     });
   }
 
   // ==============================
-  // 【共通タブの切り替え処理】
+  // 【Priceページのタブ切り替え処理】
   // ==============================
-  function initSubTabs() {
-    $(".sub-tab").each(function () {
-      const $tabContainer = $(this);
-      const $tabMenu = $tabContainer.find(".js-tab-menu");
-      const $contentContainer = $tabContainer.next();
-      const $contentItems = $contentContainer.find(".js-tab-content");
+  function initPriceTabs() {
+    const storedTab = getStoredTab();
 
-      // 初期状態で「ALL」タブをアクティブに
-      $tabMenu.filter("[data-number='tab01']").addClass("is-active");
-      $contentItems.addClass("is-active");
+    if (storedTab) {
+      setActiveTab(".js-price-tab-menu", ".js-price-tab-content", ".price-list__item", storedTab);
+      sessionStorage.removeItem("tab");
+    }
 
-      // タブクリック時の動作
-      $tabMenu.on("click", function () {
-        const number = $(this).data("number");
-        $tabMenu.add($contentItems).removeClass("is-active");
-        $(this).addClass("is-active");
-
-        if (number === "tab01") {
-          $contentItems.addClass("is-active");
-        } else {
-          $contentContainer.find(`.js-tab-content[data-tab='${number}']`).addClass("is-active");
-        }
-      });
+    $(".js-price-tab-menu").on("click", function () {
+      setActiveTab(".js-price-tab-menu", ".js-price-tab-content", ".price-list__item", $(this).data("number"));
     });
   }
 
@@ -159,69 +160,32 @@ jQuery(function ($) {
   // ==============================
   function handleNavigationClicks() {
     $(".nav__item a").on("click", function (e) {
-      const linkText = $(this).text().trim();
+      const $this = $(this);
+      const linkText = $this.text().trim();
 
+      // Priceページのタブマッピング
       const priceNavItems = ["ライセンス講習", "ファンダイビング", "体験ダイビング"];
-      const isPriceNav = $(this).closest(".nav__items").find("a[href='price.html']").length > 0;
+      const isPriceNav = $this.closest(".nav__items").find("a[href='price.html']").length > 0;
 
       if (isPriceNav && priceNavItems.includes(linkText)) {
-        e.preventDefault(); // デフォルトの動作をキャンセル
+        e.preventDefault();
+        sessionStorage.setItem("tab", linkText);
         window.location.href = "price.html";
-        return; // 以降の処理を実行しない
+        return;
       }
 
+      // information.html のタブマッピング
       const tabMapping = {
-        ライセンス取得: { tab: "tab02", page: "campaign.html" },
-        貸切体験ダイビング: { tab: "tab03", page: "campaign.html" },
-        ナイトダイビング: { tab: "tab04", page: "campaign.html" },
-        ライセンス講習: { tab: "tab01", page: "information.html" },
-        ファンダイビング: { tab: "tab02", page: "information.html" },
-        体験ダイビング: { tab: "tab03", page: "information.html" },
+        ライセンス講習: "tab01",
+        ファンダイビング: "tab02",
+        体験ダイビング: "tab03",
       };
 
       if (tabMapping[linkText]) {
-        e.preventDefault(); // 通常のリンク動作を無効化
-        sessionStorage.setItem("tab", tabMapping[linkText].tab);
-        window.location.href = `${tabMapping[linkText].page}?tab=${tabMapping[linkText].tab}`;
+        e.preventDefault();
+        sessionStorage.setItem("tab", tabMapping[linkText]);
+        window.location.href = `information.html?tab=${tabMapping[linkText]}`;
       }
-    });
-  }
-
-  // ==============================
-  // 【タブの適用処理（共通化）】
-  // ==============================
-  function getQueryParam(name) {
-    return new URLSearchParams(window.location.search).get(name);
-  }
-
-  function handleTabSwitch(tabMenuClass, tabContentClass, contentClass) {
-    const activeTab = sessionStorage.getItem("tab") || getQueryParam("tab");
-    const currentPage = window.location.pathname.split("/").pop();
-
-    function setActiveTab(tabNumber) {
-      $(tabMenuClass + ", " + tabContentClass).removeClass("is-active");
-      $(contentClass).hide();
-
-      $(tabMenuClass + `[data-number='${tabNumber}']`).addClass("is-active");
-      $(tabContentClass + `[data-tab='${tabNumber}']`).addClass("is-active");
-
-      if (tabNumber === "tab01" && (currentPage === "campaign.html" || currentPage === "voice.html")) {
-        $(contentClass).show(); // すべて表示
-      } else {
-        $(contentClass + `[data-tab='${tabNumber}']`).show();
-      }
-    }
-
-    if (activeTab) {
-      setActiveTab(activeTab);
-      sessionStorage.removeItem("tab");
-    }
-
-    $(tabMenuClass).on("click", function () {
-      setActiveTab($(this).data("number"));
-      const newUrl = new URL(window.location);
-      newUrl.searchParams.set("tab", $(this).data("number"));
-      window.history.replaceState(null, "", newUrl);
     });
   }
 
@@ -230,22 +194,17 @@ jQuery(function ($) {
   // ==============================
   function initPageSpecificTabs() {
     const currentPage = window.location.pathname.split("/").pop();
-    const pageTabMapping = {
-      "campaign.html": { menu: ".js-tab-menu", content: ".js-tab-content", item: ".sub-campaign-cards__item" },
-      "voice.html": { menu: ".js-tab-menu", content: ".js-tab-content", item: ".voice-card-lists__item" },
-      "information.html": { menu: ".js-tab-menu", content: ".js-tab-content", item: ".information-list__item" },
-    };
 
-    if (pageTabMapping[currentPage]) {
-      handleTabSwitch(pageTabMapping[currentPage].menu, pageTabMapping[currentPage].content, pageTabMapping[currentPage].item);
+    if (currentPage === "information.html") {
+      initInformationTabs();
+    } else if (currentPage === "price.html") {
+      initPriceTabs();
     }
   }
 
   // ==============================
   // 【実行処理】
   // ==============================
-  initInformationTabs();
-  initSubTabs();
   handleNavigationClicks();
   initPageSpecificTabs();
 });
@@ -373,61 +332,69 @@ $(window).on("scroll", function () {
 // ここから下層ページ
 
 // モーダル
-document.addEventListener("DOMContentLoaded", function () {
-  const dialogs = document.querySelectorAll("dialog");
+$(document).ready(function () {
+  const $dialogs = $("dialog");
+
   // ダイアログを開く
-  const open = document.querySelectorAll(".modal__open-btn");
-  open.forEach((button) => {
-    button.addEventListener("click", () => {
-      const dialogId = button.getAttribute("data-dialog");
-      const dialog = document.getElementById(dialogId);
-      dialog.showModal();
-      dialog.classList.add("js-show");
-    });
+  $(".js-modal-open").on("click", function () {
+    const dialogId = $(this).data("dialog");
+    const $dialog = $("#" + dialogId)[0];
+
+    if (!$dialog.open) {
+      $dialog.showModal();
+      $dialog.classList.add("is-open");
+    }
   });
 
-  // ダイアログを閉じる
-  const close = document.querySelectorAll(".modal__close-btn");
-  close.forEach((button) => {
-    button.addEventListener("click", () => {
-      const dialog = button.closest("dialog");
-      dialog.classList.remove("js-show");
-      dialog.close();
-    });
-  });
+  // モーダルの外側をクリックしたら閉じる
+  $("dialog").on("click", function (event) {
+    if (!$(event.target).closest(".modal__inner").length) {
+      const $dialog = $(this)[0];
 
-  // オーバーレイクリックでダイアログを閉じる
-  dialogs.forEach((dialog) => {
-    dialog.addEventListener("click", (event) => {
-      if (event.target.closest(".modal__inner") === null) {
-        dialog.classList.remove("js-show");
-        dialog.close();
-      }
-    });
+      // フェードアウト用のクラスを追加
+      $dialog.classList.add("is-closing");
+
+      setTimeout(() => {
+        $dialog.classList.remove("is-open", "is-closing");
+        $dialog.close();
+      }, 300);
+    }
   });
 });
+// jQuery(function ($) {
+//   $(".js-modal-open").each(function () {
+//     $(this).on("click", function (e) {
+//       e.preventDefault();
+//       var target = $(this).data("target");
+//       var modal = document.getElementById(target);
+//       $(modal).fadeIn();
+//       $("html,body").css("overflow", "hidden");
+//     });
+//   });
+//   $(".js-modal-close").on("click", function () {
+//     $(".js-modal").fadeOut();
+//     $("html,body").css("overflow", "initial");
+//   });
+// });
 
 // ブログアコーディオン
 jQuery(function ($) {
   // すべてのアーカイブを初期状態で非表示にする
-  $(".sub-blog-archive__answer").hide();
-  $(".js-faq-question").removeClass("is-open");
+  $(".sub-blog-archive__month").hide();
+  $(".js-archive-year").removeClass("is-open");
 
   // 2023年の要素だけ開いた状態にする
-  $(".sub-blog-archive__link:contains('2023')").nextAll(".sub-blog-archive__answer").show();
-  $(".sub-blog-archive__link:contains('2023')").addClass("is-open");
-
-  // クリック時に開閉動作を切り替える
-  $(".js-faq-question").on("click", function () {
-    if ($(this).hasClass("is-open")) {
-      // 開いている場合は閉じる
-      $(this).nextAll(".sub-blog-archive__answer").slideUp();
-      $(this).removeClass("is-open");
-    } else {
-      // 閉じている場合は開く
-      $(this).nextAll(".sub-blog-archive__answer").slideDown();
+  $(".js-archive-year").each(function () {
+    if ($(this).text().trim() === "2023") {
+      $(this).next(".sub-blog-archive__month").show();
       $(this).addClass("is-open");
     }
+  });
+
+  // クリック時に開閉動作を切り替える
+  $(".js-archive-year").on("click", function () {
+    $(this).toggleClass("is-open");
+    $(this).next(".sub-blog-archive__month").slideToggle();
   });
 });
 
