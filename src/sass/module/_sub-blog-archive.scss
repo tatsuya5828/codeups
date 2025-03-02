@@ -1,8 +1,8 @@
 @use "global" as *;
 
-.sub-blog-archive__item + .sub-blog-archive__item {
-  margin-top: rem(10);
-}
+// .sub-blog-archive__item + .sub-blog-archive__item {
+//   margin-top: rem(10);
+// }
 
 .sub-blog-archive__link {
   position: relative;
@@ -34,10 +34,15 @@
   transform: rotate(90deg);
 }
 
+.sub-blog-archive__month{
+display: grid;
+gap: rem(10);
+margin-top: rem(10);
+}
+
 .sub-blog-archive__month-item {
   position: relative;
   display: block;
-  margin-top: rem(10);
   padding-left: rem(55);
   font-size: rem(24);
   color: $green3;
